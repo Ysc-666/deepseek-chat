@@ -74,7 +74,7 @@ def test_function():
     if request.method == "POST":
         question = request.form["question"]
         payload = {"model": "deepseek-flash", "messages": [{"role": "user", "content": question}]}
-        resp = requests.post(URL, headers=headers, json=payload, timeout=30, proxies={"http": None, "https": None})
+        resp = requests.post(URL, headers=headers, json=payload, timeout=30)
         if resp.status_code != 200:
             body = "<h1>DeepSeek 问答</h1>" \
                    "<div class='error'>Request failed, status code: " + str(resp.status_code) + "</div>" \
